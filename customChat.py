@@ -1,3 +1,7 @@
+import os
+
+os.environ['OPENAI_API_KEY'] = 'SECRET-KEY'
+
 # Import llama_index and indexing the documents stored in the data folder
 
 from llama_index import GPTSimpleVectorIndex, Document, SimpleDirectoryReader
@@ -13,3 +17,4 @@ index.save_to_disk('index.json')
 # Read the index.json later on for doing the indexation only once (#MoneySaving)
 
 index = GPTSimpleVectorIndex.load_from_disk('index.json')
+print(index.query("What's next for AI Research?"))
